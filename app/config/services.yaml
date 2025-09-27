@@ -32,3 +32,17 @@ services:
     App\Finance\Domain\Repository\BudgetRepositoryInterface:
         alias: App\Finance\Infrastructure\Repository\BudgetRepository
         public: true
+
+    # Warning generators configuration
+    App\Core\Application\Service\ContractorWarningGenerator:
+        tags: ['app.warning_generator']
+
+    App\Core\Application\Service\InvoiceWarningGenerator:
+        tags: ['app.warning_generator']
+
+    App\Core\Application\Service\BudgetWarningGenerator:
+        tags: ['app.warning_generator']
+
+    App\Core\Infrastructure\Command\GenerateWarningsCommand:
+        arguments:
+            $warningGenerators: !tagged_iterator app.warning_generator
