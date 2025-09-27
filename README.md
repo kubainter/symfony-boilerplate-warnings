@@ -1,4 +1,4 @@
-# symfo-base-skeleton
+# symfony-boilerplate-warnings
 
 ## Project requirements
 - PHP 8.2+
@@ -33,6 +33,19 @@ docker compose exec php bin/console doctrine:fixtures:load
 ## Generate warnings (CLI)
 ```sh
 docker compose exec php bin/console app:warnings:generate
+```
+
+## Static analysis (PHPStan)
+
+PHPStan is used for basic static code analysis (level 5).
+
+To run PHPStan:
+```sh
+composer phpstan
+```
+Or directly:
+```sh
+vendor/bin/phpstan analyse -c app/phpstan.neon
 ```
 
 ## Architecture overview
