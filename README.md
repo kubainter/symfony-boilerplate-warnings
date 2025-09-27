@@ -1,4 +1,8 @@
 # symfony-boilerplate-warnings
+## Contact / author
+
+Author: Jakub Grzesiak
+Contact: jakub.grzesiak@jg-webtech.pl
 
 ## Project requirements
 - PHP 8.2+
@@ -95,3 +99,27 @@ vendor/bin/phpstan analyse -c app/phpstan.neon
 - Fixtures for quick start (sample contractors, budgets, invoices)
 - CLI command orchestrates warning generators (no domain logic in command)
 - PSR-12 code style, basic static analysis
+
+## Project decisions / assumptions
+
+- Domain-Driven Design (DDD) applied with clear separation of modules and layers.
+- Warning generation logic is fully decoupled from CLI orchestration.
+- No advanced validation or authorization implemented (for demo purposes).
+- All code, comments, and documentation are in English.
+- Only basic static analysis and code style checks (PHPStan, PSR-12).
+
+## Architecture diagram (textual)
+
+Modules:
+- Core: warning entity, warning generators, CLI command
+- Finance: contractor, invoice, budget entities, repositories, fixtures
+
+Layers:
+- Domain: entities, repository interfaces
+- Application: warning generators
+- Infrastructure: repository implementations, CLI, fixtures
+
+Flow:
+- CLI command orchestrates warning generators
+- Generators use repositories to access domain data
+- Warnings are created/maintained/closed based on business rules
