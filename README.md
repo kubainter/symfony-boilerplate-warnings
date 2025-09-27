@@ -20,6 +20,22 @@ cp app/.env app/.env.local # configure your DB connection
 symfony server:start
 ```
 
+## Local run (without Docker)
+
+You can run the project without Docker using your local PHP and MySQL installation.
+
+1. Make sure you have MySQL running locally on port 3306.
+2. Create file `app/.env.local` with:
+   DATABASE_URL="mysql://symfony:symfony@127.0.0.1:3306/symfony?serverVersion=8.0&charset=utf8mb4"
+3. Install dependencies:
+   composer install
+4. Run Symfony server:
+   symfony server:start
+5. Run migrations and fixtures:
+   php bin/console doctrine:migrations:migrate
+   php bin/console doctrine:fixtures:load
+```
+
 ## Database migration
 ```sh
 docker compose exec php bin/console doctrine:migrations:migrate
