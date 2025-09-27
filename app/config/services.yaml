@@ -15,3 +15,20 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
+
+    # Repository interfaces aliases
+    App\Core\Domain\Repository\WarningRepositoryInterface:
+        alias: App\Core\Infrastructure\Repository\WarningRepository
+        public: true
+
+    App\Finance\Domain\Repository\ContractorRepositoryInterface:
+        alias: App\Finance\Infrastructure\Repository\ContractorRepository
+        public: true
+
+    App\Finance\Domain\Repository\InvoiceRepositoryInterface:
+        alias: App\Finance\Infrastructure\Repository\InvoiceRepository
+        public: true
+
+    App\Finance\Domain\Repository\BudgetRepositoryInterface:
+        alias: App\Finance\Infrastructure\Repository\BudgetRepository
+        public: true
