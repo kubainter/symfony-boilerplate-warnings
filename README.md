@@ -46,6 +46,29 @@ docker compose exec php bin/console doctrine:migrations:migrate
 docker compose exec php bin/console doctrine:fixtures:load
 ```
 
+## Sample data (fixtures)
+
+Sample contractors, budgets, and invoices are provided via Doctrine fixtures for quick start and testing warning generation.
+
+To load sample data:
+```sh
+docker compose exec php php bin/console doctrine:fixtures:load --no-interaction
+```
+Or locally (without Docker):
+```sh
+php bin/console doctrine:fixtures:load --no-interaction
+```
+
+Fixtures include:
+- Contractors (with and without overdue invoices)
+- Budgets (positive and negative balance)
+- Invoices (paid, unpaid, overdue)
+
+After loading fixtures, you can run the warning generation CLI to test business rules:
+```sh
+docker compose exec php php bin/console app:warnings:generate
+```
+
 ## Generate warnings (CLI)
 ```sh
 docker compose exec php bin/console app:warnings:generate
