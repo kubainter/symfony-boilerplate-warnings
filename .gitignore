@@ -1,0 +1,30 @@
+# IDE & OS specific files
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Symfony specific
+/app/var/
+/app/vendor/
+/app/bin/*
+!/app/bin/console
+!/app/bin/phpunit
+
+# Environment variables
+/app/.env.local
+/app/.env.local.php
+/app/.env.*.local
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Database
+*.sqlite
+*.db
+
+# Logs
+/app/var/log/
+*.log
